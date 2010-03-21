@@ -36,6 +36,6 @@ class LineInterpolation extends Model
   
   function get($vector)
   {
-    return $this->db->select('*')->from('interpolation')->order_by('id','desc')->limit(1)->get()->result();
+    return $this->db->select('*')->from('interpolation')->order_by('id','desc')->limit(1)->get()->first_row();
   }
 }
