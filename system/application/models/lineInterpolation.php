@@ -7,6 +7,7 @@ class LineInterpolation extends Model
   public $orientation = 0;
   public $steps = 0;
   public $trail = null;
+  public $deviation = 0;
   
   private $__id;
 
@@ -30,6 +31,7 @@ class LineInterpolation extends Model
     $this->steps              = $steps;
     $this->steps              = $steps;
     $this->trail              = $trail;
+    $this->deviation          = $deviation;
     
     return $this->db->insert('interpolation', $this);
   }

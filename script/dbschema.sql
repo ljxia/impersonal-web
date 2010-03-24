@@ -4,7 +4,7 @@
 #
 # Host: localhost (MySQL 5.1.38)
 # Database: impersonal
-# Generation Time: 2010-03-21 23:43:40 -0400
+# Generation Time: 2010-03-24 01:30:22 -0400
 # ************************************************************
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -28,12 +28,13 @@ CREATE TABLE `interpolation` (
   `normalizedVector` varchar(100) NOT NULL,
   `length` int(11) NOT NULL DEFAULT '0',
   `orientation` double NOT NULL DEFAULT '0',
+  `deviation` double NOT NULL DEFAULT '0',
   `steps` int(11) NOT NULL DEFAULT '0',
   `trail` text NOT NULL,
   `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updateTime` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=34 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=69 DEFAULT CHARSET=utf8;
 
 
 
