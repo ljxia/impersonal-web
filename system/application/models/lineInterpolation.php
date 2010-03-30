@@ -36,8 +36,26 @@ class LineInterpolation extends Model
     return $this->db->insert('interpolation', $this);
   }
   
-  function get($vector)
+  function get($vector, $orientation, $length)
   {
-    return $this->db->select('*')->from('interpolation')->order_by('id','desc')->limit(1)->get()->first_row();
+    $quadrant = intval($orientation / 90) + 1;
+    
+    $query = $this->db->select('*')
+                      ->from('interpolation')
+                      ->where(array(
+                        "orientation >= " => (($quadrant - 1) * 90),
+                        "orientation < " => ($quadrant * 90),
+                        ))
+                      ->order_by("abs(orientation - $orientation) asc, abs(length - $length) asc, deviation asc")->limit(5)->get();
+    
+    
+    if ($query->num_rows() > 0)
+    {
+      return $query->first_row();
+    }
+    else
+    {
+      return "{}";//$this->db->select('*')->from('interpolation')->order_by('id','random')->limit(1)->get()->first_row();
+    }    
   }
 }
