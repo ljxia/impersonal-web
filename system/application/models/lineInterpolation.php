@@ -45,6 +45,8 @@ class LineInterpolation extends Model
                       ->where(array(
                         "orientation >= " => (($quadrant - 1) * 90),
                         "orientation < " => ($quadrant * 90),
+                        "length < " => ($length * 1.5),
+                        "length > " => ($length * 0.6)
                         ))
                       ->order_by("abs(orientation - $orientation) asc, abs(length - $length) asc, deviation asc")->limit(5)->get();
     
