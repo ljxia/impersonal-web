@@ -50,10 +50,18 @@ class LineInterpolation extends Model
                         ))
                       ->order_by("abs(orientation - $orientation) asc, abs(length - $length) asc, deviation asc")->limit(5)->get();
     
+    $row_count = $query->num_rows();
     
-    if ($query->num_rows() > 0)
+    if ($row_count > 0)
     {
-      return $query->first_row();
+      $row = $query->first_row();
+      $omit = rand(0, $row_count - 1);
+      while ($omit > 0)
+      {
+          $omit--;
+          $row = $query->next_row();
+      }
+      return $row;
     }
     else
     {
