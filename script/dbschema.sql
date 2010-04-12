@@ -4,7 +4,7 @@
 #
 # Host: localhost (MySQL 5.1.38)
 # Database: impersonal
-# Generation Time: 2010-03-24 01:30:22 -0400
+# Generation Time: 2010-04-11 17:14:34 -0400
 # ************************************************************
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -34,7 +34,38 @@ CREATE TABLE `interpolation` (
   `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updateTime` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=69 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=241 DEFAULT CHARSET=utf8;
+
+
+
+# Dump of table pattern
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `pattern`;
+
+CREATE TABLE `pattern` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `width` float NOT NULL DEFAULT '0',
+  `height` float NOT NULL DEFAULT '0',
+  `density` float NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+
+# Dump of table stroke
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `stroke`;
+
+CREATE TABLE `stroke` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `pattern_id` int(11) DEFAULT NULL,
+  `trail` text,
+  `brushSize` float NOT NULL DEFAULT '3',
+  `brushColor` float NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 
 

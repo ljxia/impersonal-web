@@ -108,7 +108,7 @@ $autoload['language'] = array();
 |
 */
 
-$autoload['model'] = array('lineInterpolation');
+$autoload['model'] = array('interpolationModel','strokeModel','patternModel');
 
 
 

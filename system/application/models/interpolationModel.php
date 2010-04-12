@@ -1,5 +1,5 @@
 <?php
-class LineInterpolation extends Model 
+class InterpolationModel extends Model 
 {
   public $vector             = null;
   public $normalizedVector   = null;
@@ -11,7 +11,7 @@ class LineInterpolation extends Model
   
   private $__id;
 
-  function LineInterpolation()
+  function InterpolationModel()
   {
     // Call the Model constructor
     parent::Model();

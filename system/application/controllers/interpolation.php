@@ -15,7 +15,7 @@ class Interpolation extends Controller {
 	    $vector = json_decode($vector);
 	    
 	    //echo var_dump(json_decode($vector));
-	    echo json_encode($this->lineInterpolation->get($vector, $orientation, $length));
+	    echo json_encode($this->interpolationModel->get($vector, $orientation, $length));
 	  }
     else
     {
