@@ -47,8 +47,8 @@ class StrokeModel extends Model
   
   function getByPattern($pattern_id)
   {
-    $query = $this->db->select('*')->from('stroke')->where("pattern_id",$pattern_id)->order_by('id DESC')->limit(1)->get();
-    return $query->first_row();
+    $query = $this->db->select('*')->from('stroke')->where("pattern_id",$pattern_id)->order_by('id ASC')->get();
+    return $query->result();
   }
   
 }
