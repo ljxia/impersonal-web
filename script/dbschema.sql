@@ -4,7 +4,7 @@
 #
 # Host: localhost (MySQL 5.1.38)
 # Database: impersonal
-# Generation Time: 2010-04-11 17:14:34 -0400
+# Generation Time: 2010-04-12 01:07:14 -0400
 # ************************************************************
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -48,8 +48,9 @@ CREATE TABLE `pattern` (
   `width` float NOT NULL DEFAULT '0',
   `height` float NOT NULL DEFAULT '0',
   `density` float NOT NULL DEFAULT '0',
+  `strokeCount` int(11) NOT NULL DEFAULT '-1',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 
 
@@ -63,9 +64,9 @@ CREATE TABLE `stroke` (
   `pattern_id` int(11) DEFAULT NULL,
   `trail` text,
   `brushSize` float NOT NULL DEFAULT '3',
-  `brushColor` float NOT NULL DEFAULT '0',
+  `brushColor` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=60 DEFAULT CHARSET=latin1;
 
 
 
