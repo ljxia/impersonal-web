@@ -29,4 +29,9 @@ class Learn extends Controller {
 	{
 	  echo $this->strokeModel->insert_entry($_POST);
 	}
+	
+	function structure()
+	{
+	  echo $this->structureModel->insert_entry($_POST);
+	}
 }

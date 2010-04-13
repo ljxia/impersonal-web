@@ -19,8 +19,6 @@ class StrokeModel extends Model
   {
     extract($data);
     
-    $this->load->helper('date');
-    
     $this->pattern_id         = $pattern_id;
     $this->brushSize          = $brushSize;
     $this->brushColor         = $brushColor;

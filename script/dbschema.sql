@@ -4,7 +4,7 @@
 #
 # Host: localhost (MySQL 5.1.38)
 # Database: impersonal
-# Generation Time: 2010-04-12 01:07:14 -0400
+# Generation Time: 2010-04-13 18:27:03 -0400
 # ************************************************************
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -45,12 +45,13 @@ DROP TABLE IF EXISTS `pattern`;
 
 CREATE TABLE `pattern` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `structure_id` int(11) DEFAULT NULL,
   `width` float NOT NULL DEFAULT '0',
   `height` float NOT NULL DEFAULT '0',
   `density` float NOT NULL DEFAULT '0',
   `strokeCount` int(11) NOT NULL DEFAULT '-1',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
 
 
 
@@ -66,7 +67,23 @@ CREATE TABLE `stroke` (
   `brushSize` float NOT NULL DEFAULT '3',
   `brushColor` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=60 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=101 DEFAULT CHARSET=latin1;
+
+
+
+# Dump of table structure
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `structure`;
+
+CREATE TABLE `structure` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `width` float NOT NULL DEFAULT '0',
+  `height` float NOT NULL DEFAULT '0',
+  `density` float NOT NULL DEFAULT '0',
+  `patternCount` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 
 
