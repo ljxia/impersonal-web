@@ -6,8 +6,9 @@ class PatternModel extends Model
   public $height = 0;
   public $strokeCount = 0;
   public $structure_id = NULL;
+  public $offset;
   
-  private $__id;
+  private $id;
 
   function PatternModel()
   {
@@ -29,6 +30,7 @@ class PatternModel extends Model
     $this->width              = $width;
     $this->height             = $height;
     $this->strokeCount        = $strokeCount;
+    $this->offset             = $offset;
     
     $result = $this->db->insert('pattern', $this);
     

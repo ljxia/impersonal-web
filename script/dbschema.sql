@@ -4,7 +4,7 @@
 #
 # Host: localhost (MySQL 5.1.38)
 # Database: impersonal
-# Generation Time: 2010-04-13 18:27:03 -0400
+# Generation Time: 2010-04-14 04:06:36 -0400
 # ************************************************************
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -46,12 +46,15 @@ DROP TABLE IF EXISTS `pattern`;
 CREATE TABLE `pattern` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `structure_id` int(11) DEFAULT NULL,
+  `offset` varchar(100) NOT NULL,
   `width` float NOT NULL DEFAULT '0',
   `height` float NOT NULL DEFAULT '0',
   `density` float NOT NULL DEFAULT '0',
   `strokeCount` int(11) NOT NULL DEFAULT '-1',
+  `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updateTime` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=45 DEFAULT CHARSET=utf8;
 
 
 
@@ -66,8 +69,10 @@ CREATE TABLE `stroke` (
   `trail` text,
   `brushSize` float NOT NULL DEFAULT '3',
   `brushColor` int(11) NOT NULL DEFAULT '0',
+  `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updateTime` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=101 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=266 DEFAULT CHARSET=utf8;
 
 
 
@@ -82,8 +87,12 @@ CREATE TABLE `structure` (
   `height` float NOT NULL DEFAULT '0',
   `density` float NOT NULL DEFAULT '0',
   `patternCount` int(11) NOT NULL DEFAULT '0',
+  `dimension` varchar(100) NOT NULL DEFAULT '{"x":0, "y":0,"z":0}',
+  `offset` varchar(100) NOT NULL,
+  `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updateTime` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
 
 

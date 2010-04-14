@@ -3,8 +3,11 @@ class StructureModel extends Model
 {
   public $width = 0;
   public $height = 0;
+  public $dimension;
+  public $offset;
   
-  private $__id;
+  
+  private $id;
 
   function StructureModel()
   {
@@ -20,6 +23,8 @@ class StructureModel extends Model
     $this->width              = $width;
     $this->height             = $height;
     $this->patternCount       = $patternCount;
+    $this->dimension          = $dimension;
+    $this->offset             = $offset;
     
     $result = $this->db->insert('structure', $this);
     
