@@ -5,7 +5,7 @@ class PatternModel extends Model
   public $width = 0;
   public $height = 0;
   public $strokeCount = 0;
-  public $pattern_id = NULL;
+  public $structure_id = NULL;
   
   private $__id;
 
@@ -20,9 +20,9 @@ class PatternModel extends Model
   {
     extract($data);
     
-    if (isset($pattern_id))
+    if (isset($structure_id))
     {
-      $this->pattern_id = $pattern_id;
+      $this->structure_id = $structure_id;
     }
     
     $this->density            = $density;
