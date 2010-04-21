@@ -4,7 +4,7 @@
 #
 # Host: localhost (MySQL 5.1.38)
 # Database: impersonal
-# Generation Time: 2010-04-14 04:06:36 -0400
+# Generation Time: 2010-04-21 02:31:39 -0400
 # ************************************************************
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -15,6 +15,19 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+
+# Dump of table inspiration
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `inspiration`;
+
+CREATE TABLE `inspiration` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `url` varchar(500) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
 
 
 # Dump of table interpolation
@@ -34,7 +47,23 @@ CREATE TABLE `interpolation` (
   `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updateTime` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=241 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=250 DEFAULT CHARSET=utf8;
+
+
+
+# Dump of table learning
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `learning`;
+
+CREATE TABLE `learning` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `inspiration_id` int(11) DEFAULT NULL,
+  `object_type` varchar(20) DEFAULT NULL,
+  `object_id` int(11) DEFAULT NULL,
+  `params` text,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 
 
