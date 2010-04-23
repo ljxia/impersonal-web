@@ -8,15 +8,6 @@ class Learn extends Controller {
 	
 	function interpolation()
 	{
-    // echo "Page OK\r\n";
-    // 
-    //     echo count($_POST)." POST params\r\n";
-    //     echo json_encode($_POST)."\r\n";
-    
-    // echo "\r\n";
-    // 
-    // echo count($_GET)." GET params\r\n";
-    // echo json_encode($this->input->get());
     echo $this->interpolationModel->insert_entry($_POST);
 	}
 	
@@ -33,5 +24,10 @@ class Learn extends Controller {
 	function structure()
 	{
 	  echo $this->structureModel->insert_entry($_POST);
+	}
+	
+	function inspiration()
+	{
+	  echo $this->inspirationModel->insert_entry($_POST);
 	}
 }

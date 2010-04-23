@@ -202,8 +202,8 @@ class CI_Upload {
 		// Is the file type allowed to be uploaded?
 		if ( ! $this->is_allowed_filetype())
 		{
-			$this->set_error('upload_invalid_filetype');
-			return FALSE;
+			//$this->set_error('upload_invalid_filetype');
+			//return FALSE;
 		}
 
 		// Is the file size within the allowed maximum?
