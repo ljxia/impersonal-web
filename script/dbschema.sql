@@ -4,7 +4,7 @@
 #
 # Host: localhost (MySQL 5.1.38)
 # Database: impersonal
-# Generation Time: 2010-04-21 02:31:39 -0400
+# Generation Time: 2010-04-23 03:15:36 -0400
 # ************************************************************
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -25,8 +25,13 @@ DROP TABLE IF EXISTS `inspiration`;
 CREATE TABLE `inspiration` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `url` varchar(500) DEFAULT NULL,
+  `width` int(11) DEFAULT NULL,
+  `height` int(11) DEFAULT NULL,
+  `type` varchar(10) NOT NULL DEFAULT 'file',
+  `filehash` char(40) DEFAULT NULL,
+  `uploaded` bit(1) NOT NULL DEFAULT b'0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=48 DEFAULT CHARSET=utf8;
 
 
 
