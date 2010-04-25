@@ -4,7 +4,7 @@
 #
 # Host: localhost (MySQL 5.1.38)
 # Database: impersonal
-# Generation Time: 2010-04-23 03:15:36 -0400
+# Generation Time: 2010-04-24 23:33:30 -0400
 # ************************************************************
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -15,6 +15,26 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+
+# Dump of table contour
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `contour`;
+
+CREATE TABLE `contour` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `inspiration_id` int(11) DEFAULT NULL,
+  `pattern_id` int(11) DEFAULT NULL,
+  `threshold` int(11) NOT NULL DEFAULT '0',
+  `area` float DEFAULT NULL,
+  `isHole` bit(1) NOT NULL DEFAULT b'0',
+  `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `filehash` char(40) DEFAULT NULL,
+  `uploaded` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=349 DEFAULT CHARSET=utf8;
+
 
 
 # Dump of table inspiration
@@ -31,7 +51,7 @@ CREATE TABLE `inspiration` (
   `filehash` char(40) DEFAULT NULL,
   `uploaded` bit(1) NOT NULL DEFAULT b'0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=48 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=322 DEFAULT CHARSET=utf8;
 
 
 
@@ -52,7 +72,7 @@ CREATE TABLE `interpolation` (
   `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updateTime` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=250 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=251 DEFAULT CHARSET=utf8;
 
 
 
@@ -88,7 +108,7 @@ CREATE TABLE `pattern` (
   `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updateTime` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=45 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=7897 DEFAULT CHARSET=utf8;
 
 
 
@@ -106,7 +126,7 @@ CREATE TABLE `stroke` (
   `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updateTime` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=266 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=8118 DEFAULT CHARSET=utf8;
 
 
 
