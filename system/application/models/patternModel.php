@@ -51,6 +51,12 @@ class PatternModel extends Model
     return $query->first_row();
   }
   
+  function getRandom()
+  {
+    $query = $this->db->select('*')->from('pattern')->order_by('id random')->limit(1)->get();
+    return $query->first_row();
+  }
+  
   function getByStructure($structure_id)
   {
     $query = $this->db->select('*')->from('pattern')->where("structure_id",$structure_id)->order_by('id ASC')->get();

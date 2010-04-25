@@ -13,6 +13,10 @@ class Pattern extends Controller {
 	  {
 	    echo json_encode($this->patternModel->getByStructure($structure_id));
 	  }
+	  else if (isset($random))
+	  {
+	    echo json_encode($this->patternModel->getRandom());
+	  }
 	  else
 	  {
 	    echo json_encode($this->patternModel->getLatest());
