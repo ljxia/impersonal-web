@@ -5,7 +5,7 @@ class InspirationModel extends Model
   public $height = 0;
   public $type = "file";
   public $url = "";
-  
+  public $filehash;
   
   private $id;
 
@@ -24,6 +24,16 @@ class InspirationModel extends Model
     $this->height             = $height;
     $this->type               = $type;
     $this->url                = $url;
+    if (isset($filehash))
+    {
+      $this->filehash         = $filehash;
+      
+      $check_query = $this->db->select('id')->from('inspiration')->where('filehash', $filehash)->get();
+      if ($check_query->num_rows() > 0)
+      {
+        return -1 * $check_query->first_row()->id;
+      }
+    }
     
     $result = $this->db->insert('inspiration', $this);
     
@@ -42,7 +52,7 @@ class InspirationModel extends Model
   {
     $data = array(
               'uploaded' => 1,
-              'filehash' => $hash
+              // 'filehash' => $hash
             );
             
     $this->db->where('id', $id);
