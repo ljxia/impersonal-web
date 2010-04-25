@@ -54,6 +54,30 @@ class Upload extends Controller {
       $hash = sha1_file($data["full_path"]);
       $this->inspirationModel->setUploaded($id, $hash);
       
+      echo "upload ok; ".$data["full_path"]. " - ".$hash;
+    }
+    else
+    {
+      echo "error: ".var_dump($this->upload->display_errors(".","."));
+    }
+  }
+  
+  function contour($id)
+  {
+    $config = array();
+    $config['upload_path'] = './uploads/contour/';
+    $config['allowed_types'] = 'gif|jpg|png|bmp';
+    $config['file_name'] = 'ctr_'.$id;
+    $config['max_size']	= '10240';
+
+    $this->load->library('upload', $config);
+
+    if ($this->upload->do_upload())
+    {
+      $data = $this->upload->data();
+      
+      $hash = sha1_file($data["full_path"]);
+      $this->contourModel->setUploaded($id, $hash);
       
       echo "upload ok; ".$data["full_path"]. " - ".$hash;
     }
@@ -62,6 +86,9 @@ class Upload extends Controller {
       echo "error: ".var_dump($this->upload->display_errors(".","."));
     }
   }
+  
+  
+  
 
   function do_upload()
   {

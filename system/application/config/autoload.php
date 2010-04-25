@@ -108,7 +108,7 @@ $autoload['language'] = array();
 |
 */
 
-$autoload['model'] = array('interpolationModel','strokeModel','patternModel','structureModel','inspirationModel');
+$autoload['model'] = array('interpolationModel','strokeModel','patternModel','structureModel','inspirationModel','contourModel');
 
 
 

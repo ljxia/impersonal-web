@@ -30,4 +30,9 @@ class Learn extends Controller {
 	{
 	  echo $this->inspirationModel->insert_entry($_POST);
 	}
+	
+	function contour()
+	{
+	  echo $this->contourModel->insert_entry($_POST);
+	}
 }
