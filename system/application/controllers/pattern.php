@@ -28,4 +28,13 @@ class Pattern extends Controller {
 	  echo json_encode($this->patternModel->getByStructure($structure_id));
 	}
 	
+	function update($id)
+	{
+	  echo json_encode($this->patternModel->update($id, $_POST));
+	}
+	
+	function test($id)
+	{
+	  echo json_encode($this->patternModel->test($id));
+	}
 }

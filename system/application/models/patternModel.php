@@ -53,7 +53,7 @@ class PatternModel extends Model
   
   function getRandom()
   {
-    $query = $this->db->select('*')->from('pattern')->order_by('id random')->limit(1)->get();
+    $query = $this->db->select('*')->from('pattern')->where("orientation is null")->order_by('id','RANDOM')->limit(1)->get();
     return $query->first_row();
   }
   
@@ -61,5 +61,26 @@ class PatternModel extends Model
   {
     $query = $this->db->select('*')->from('pattern')->where("structure_id",$structure_id)->order_by('id ASC')->get();
     return $query->result();
+  }
+  
+  function update($id, $params)
+  {
+    $this->db->where('id', $id);
+    
+    $this->load->helper('date');
+    $datestring = "%Y-%m-%d %h:%i:%s";
+    $time = time();
+
+    $params["updateTime"] = mdate($datestring, $time);
+    
+    return $this->db->update("pattern", $params);
+  }
+  
+  function test($id)
+  {
+    return $id;
+    // $params = array("orientation" => 42);
+    //     $this->db->where('id', $id);
+    //     return $this->db->update("pattern", $params);
   }
 }
