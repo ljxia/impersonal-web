@@ -51,10 +51,9 @@ class Upload extends Controller {
     {
       $data = $this->upload->data();
       
-      $hash = sha1_file($data["full_path"]);
-      $this->inspirationModel->setUploaded($id, $hash);
+      $this->inspirationModel->setUploaded($id, $data["file_name"]);
       
-      echo "upload ok; ".$data["full_path"]. " - ".$hash;
+      echo "upload ok; ".$data["full_path"];
     }
     else
     {
@@ -76,10 +75,9 @@ class Upload extends Controller {
     {
       $data = $this->upload->data();
       
-      $hash = sha1_file($data["full_path"]);
-      $this->contourModel->setUploaded($id, $hash);
+      $this->contourModel->setUploaded($id, $data["file_name"]);
       
-      echo "upload ok; ".$data["full_path"]. " - ".$hash;
+      echo "upload ok; ".$data["full_path"];
     }
     else
     {

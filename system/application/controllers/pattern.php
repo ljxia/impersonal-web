@@ -37,4 +37,11 @@ class Pattern extends Controller {
 	{
 	  echo json_encode($this->patternModel->test($id));
 	}
+	
+	function all()
+	{
+	  $data = $this->patternModel->all();
+	  $this->load->view('pattern_list', compact("data"));
+	}
+
 }

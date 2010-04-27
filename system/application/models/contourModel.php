@@ -7,6 +7,7 @@ class ContourModel extends Model
   public $area = 0;
   public $isHole = 0;
   
+  
   private $id;
 
   function ContourModel()
@@ -26,6 +27,12 @@ class ContourModel extends Model
     $this->area               = $area;
     $this->isHole             = $isHole;
     
+    // $this->load->helper('date');
+    // $datestring = "%Y-%m-%d %h:%i:%s";
+    // $time = time();
+    // 
+    // $this->updateTime = mdate($datestring, $time);
+    
     $result = $this->db->insert('contour', $this);
     
     if ($result !== FALSE)
@@ -39,11 +46,11 @@ class ContourModel extends Model
     }
   }
   
-  function setUploaded($id, $hash)
+  function setUploaded($id, $file_name)
   {
     $data = array(
               'uploaded' => 1,
-              'filehash' => $hash
+              'fileName' => $file_name
             );
             
     $this->db->where('id', $id);

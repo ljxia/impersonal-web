@@ -48,11 +48,11 @@ class InspirationModel extends Model
     }
   }
   
-  function setUploaded($id, $hash)
+  function setUploaded($id, $file_name)
   {
     $data = array(
               'uploaded' => 1,
-              // 'filehash' => $hash
+              'fileName' => $file_name
             );
             
     $this->db->where('id', $id);

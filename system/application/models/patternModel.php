@@ -7,6 +7,7 @@ class PatternModel extends Model
   public $strokeCount = 0;
   public $structure_id = NULL;
   public $offset;
+  public $updateTime;
   
   private $id;
 
@@ -32,6 +33,12 @@ class PatternModel extends Model
     $this->strokeCount        = $strokeCount;
     $this->offset             = $offset;
     
+    $this->load->helper('date');
+    $datestring = "%Y-%m-%d %h:%i:%s";
+    $time = time();
+
+    $this->updateTime = mdate($datestring, $time);
+    
     $result = $this->db->insert('pattern', $this);
     
     if ($result !== FALSE)
@@ -44,6 +51,13 @@ class PatternModel extends Model
       return "-1";
     }
   }
+  
+  function all()
+  {
+    $query = $this->db->select('pattern.*, contour.id as contour_id, contour.fileName as contour_fileName')->from('pattern')->join('contour', 'contour.pattern_id = pattern.id')->order_by('id DESC')->get();
+    return $query->result();
+  }
+  
   
   function getLatest()
   {
