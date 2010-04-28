@@ -58,6 +58,36 @@ class PatternModel extends Model
     return $query->result();
   }
   
+  function getMatched($orientation, $power)
+  {
+    //$quadrant = intval($orientation / 90) + 1;
+    
+    $query = $this->db->select('*')
+                      ->from('pattern')
+                      ->where(array(
+                        "orientation >= " => ($orientation - 30),
+                        "orientation < " => ($orientation + 30),
+                        ))
+                      ->order_by("abs(orientation - $orientation) asc")->limit(10)->get();
+    
+    $row_count = $query->num_rows();
+    
+    if ($row_count > 0)
+    {
+      $row = $query->first_row();
+      $omit = rand(0, $row_count - 1);
+      while ($omit > 0)
+      {
+          $omit--;
+          $row = $query->next_row();
+      }
+      return $row;
+    }
+    else
+    {
+      return "{}";//$this->db->select('*')->from('interpolation')->order_by('id','random')->limit(1)->get()->first_row();
+    }
+  }
   
   function getLatest()
   {

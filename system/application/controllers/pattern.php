@@ -13,6 +13,10 @@ class Pattern extends Controller {
 	  {
 	    echo json_encode($this->patternModel->getByStructure($structure_id));
 	  }
+	  else if (isset($orientation) && isset($power))
+	  {
+	    echo json_encode($this->patternModel->getMatched($orientation, $power));
+	  }
 	  else if (isset($random))
 	  {
 	    echo json_encode($this->patternModel->getRandom());

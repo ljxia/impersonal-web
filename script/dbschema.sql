@@ -4,7 +4,7 @@
 #
 # Host: localhost (MySQL 5.1.38)
 # Database: impersonal
-# Generation Time: 2010-04-24 23:33:30 -0400
+# Generation Time: 2010-04-27 17:14:53 -0400
 # ************************************************************
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -32,8 +32,9 @@ CREATE TABLE `contour` (
   `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `filehash` char(40) DEFAULT NULL,
   `uploaded` int(11) NOT NULL DEFAULT '0',
+  `fileName` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=349 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=3634 DEFAULT CHARSET=utf8;
 
 
 
@@ -50,8 +51,10 @@ CREATE TABLE `inspiration` (
   `type` varchar(10) NOT NULL DEFAULT 'file',
   `filehash` char(40) DEFAULT NULL,
   `uploaded` bit(1) NOT NULL DEFAULT b'0',
+  `fileName` varchar(100) DEFAULT NULL,
+  `createTime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=322 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=330 DEFAULT CHARSET=utf8;
 
 
 
@@ -103,12 +106,15 @@ CREATE TABLE `pattern` (
   `offset` varchar(100) NOT NULL,
   `width` float NOT NULL DEFAULT '0',
   `height` float NOT NULL DEFAULT '0',
+  `aspectRatio` float DEFAULT NULL,
   `density` float NOT NULL DEFAULT '0',
   `strokeCount` int(11) NOT NULL DEFAULT '-1',
   `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updateTime` timestamp NULL DEFAULT NULL,
+  `orientation` int(11) DEFAULT NULL,
+  `power` float DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=7897 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=11196 DEFAULT CHARSET=utf8;
 
 
 
@@ -126,7 +132,7 @@ CREATE TABLE `stroke` (
   `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updateTime` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=8118 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=11417 DEFAULT CHARSET=utf8;
 
 
 
